@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Blog</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header><a class="brand" href="{{ url_for('blog.index') }}">App Blog</a><a class="button" href="{{ url_for('blog.new_post') }}">+ New Post</a></header>
+    {% block content %}{% endblock %}
+    <footer>
+      <strong>Current Server</strong>
+      <div>Instance ID: <code>{{ instance.instance_id }}</code></div>
+      <div>Availability Zone: <code>{{ instance.az }}</code></div>
+      <div>Hostname: <code>{{ instance.hostname }}</code></div>
+    </footer>
+  </main>
+</body>
+</html>

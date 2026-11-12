@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create a Post</h1>
+<form method="post" action="{{ url_for('blog.create_post') }}">
+<label for="title">Title</label><input id="title" name="title" maxlength="200" required>
+<label for="content">Content</label><textarea id="content" name="content" rows="9" required></textarea>
+<button type="submit">Publish</button>
+</form>
+{% endblock %}

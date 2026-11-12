@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>My Blog</h1><p class="muted">Welcome to my blog.</p>
+{% for post in posts %}
+<article><h2><a href="{{ url_for('blog.post_detail', post_id=post.id) }}">{{ post.title }}</a></h2>
+<p class="muted">{{ post.created_at.strftime('%Y-%m-%d %H:%M UTC') }}</p>
+<p>{{ post.content[:180] }}{% if post.content|length > 180 %}...{% endif %}</p></article>
+{% else %}<article>No posts yet. Create your first post!</article>{% endfor %}
+{% endblock %}
